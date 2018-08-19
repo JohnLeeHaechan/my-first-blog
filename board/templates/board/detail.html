@@ -1,0 +1,20 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ data.title }}</h1>
+    <div>
+        작성자 : {{ data.author }}
+    </div>
+    <div>
+        생성일 : {{ data.created_date }}
+    </div>
+    <div>
+        수정일 : {{ data.published_date }}
+    </div>
+    <br>
+    <p>
+        {{ data.content }}
+    </p>
+</div>
+{% endblock %}
