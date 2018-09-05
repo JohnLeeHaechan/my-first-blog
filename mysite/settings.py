@@ -25,7 +25,7 @@ SECRET_KEY = '9j2h*b43an4p43_^^d--@s1=b$-!0eqb5ygz^8n(&%aw_!q6$5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -40,7 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'disqus',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
+DISQUS_WEBSITE_SHORTNAME = 'colorfrog'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,3 +128,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 각 media 파일에 대한 URL Prefix
+MEDIA_URL = '/media/' # 항상 / 로 끝나도록 설정
+# MEDIA_URL = 'http://static.myservice.com/media/' 다른 서버로 media 파일 복사시
+
+# 업로드된 파일을 저장할 디렉토리 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

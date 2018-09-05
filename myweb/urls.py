@@ -5,4 +5,5 @@ from . import views
 app_name = 'myweb'
 urlpatterns = [
     path('', views.mainIndex, name='index'),
+    path('', views.fileIndex, name='file')
 ]

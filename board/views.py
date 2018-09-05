@@ -6,7 +6,7 @@ def mainIndex(request):
     if request.method == 'GET':
         data = Post.objects.all()
         context = {
-            'data': data
+            'data': data,
         }
         return render(request, 'board/index.html', context)
 
@@ -17,7 +17,14 @@ def detail(request):
         data.view_count = data.view_count + 1
         data.save(update_fields=('view_count',))
         context = {
+            'data': data,
+        }
+        return render(request, 'board/detail.html', context)
+
+def photo(request):
+    if request.method == 'GET':
+        data = Post.objects.all()
+        context = {
             'data': data
         }
-
-        return render(request, 'board/detail.html', context)
+        return render(request, 'board/photo.html', context)
